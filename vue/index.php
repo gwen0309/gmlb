@@ -21,7 +21,7 @@
         </header>
         
             <nav> 
-                <ul>
+                <ul id="menu">
                     <li> <a href="#">A propos</a></li>
                     <li> <a href="#">Festival 2014 </a></li>
                     <li> <a href="#">Le quotidien</a></li>
