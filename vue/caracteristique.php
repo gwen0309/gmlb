@@ -57,7 +57,7 @@
         <p>Nom du contact : <input type="text" name="nom_contact" /></p>
         <p>Prénom du contact : <input type="text" name="prenom_contact" /></p>
         <p>Adresse mail du contact : <input type="text" name="mail_contact" /></p>
-        <p>Téléphone du contact : <input type="text" name="telephone du contact" /></p>
+        <p>Téléphone du contact : <input type="text" name="telephone_contact" /></p>
         <p><input type="submit" value="Envoyer"></p>
      </form>
 
