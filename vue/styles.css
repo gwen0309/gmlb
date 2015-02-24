@@ -59,7 +59,7 @@ nav li{
     margin-right:5%;
 }
 
-/* TEST MENU */
+/* TEST MENU HORIZONTAL */
 
 #menu{
         width: 100%;
@@ -67,18 +67,21 @@ nav li{
         padding: 10px 0 0 0;
         list-style: none;
         background: #111;
-        background: -moz-linear-gradient(#444, #111);
+        /* background: -moz-linear-gradient(#444, #111);
         background: -webkit-gradient(linear,left bottom,left top,color-stop(0, #111),color-stop(1, #444));
         background: -webkit-linear-gradient(#444, #111);
         background: -o-linear-gradient(#444, #111);
         background: -ms-linear-gradient(#444, #111);
         background: linear-gradient(#444, #111);
-        -moz-border-radius: 50px;
+       -moz-border-radius: 50px;
         border-radius: 50px;
         -moz-box-shadow: 0 2px 1px #9c9c9c;
         -webkit-box-shadow: 0 2px 1px #9c9c9c;
-        box-shadow: 0 2px 1px #9c9c9c;
+        box-shadow: 0 2px 1px #9c9c9c; */
 		border-top: 15px solid black; /* Decale le menu de 15px vers le haut */
+		font: bold 15px/25px Arial, Helvetica;
+		
+  
 }
 
 #menu li{
@@ -93,13 +96,27 @@ nav li{
         padding: 0 25px;
         color: #999;
         text-transform: uppercase;
-        font: bold 12px/25px Arial, Helvetica;
         text-decoration: none;
-        text-shadow: 0 1px 0 #000;
+        /*text-shadow: 0 1px 0 #000;*/
+		
+		font: bold 12px/25px Arial, Helvetica;
+		margin: 1px 0; /* espace les liens d'1 px */
+  		/*padding: 8px 10px; /* marges internes pour aérer */ 
+  		color: #999;
+  		background: #111;
+  		text-decoration: none; /* on vire le soulignement */
+
+  /* on définit la transition pour les navigateurs */
+  -webkit-transition: all .3s; /* Chrome/Safari */
+  -moz-transition: all .3s; /* Firefox (plus trop nécessaire) */
+  transition: all .3s; /* syntaxe officielle */
 }
 
 #menu li:hover > a{
-        color: #fafafa;
+        /*color: #fafafa;*/
+		background: #E9C200;
+  		color: #FFF;
+  		padding-left: 30px; /* décalage du contenu de 10px vers la droite (30-20 = 10) */
 }
 
 *html #menu li a:hover{ /* IE6 */
@@ -204,19 +221,86 @@ nav li{
     border-radius: 0 0 5px 5px;
 }
 
+/* TEST MENU VERTICAL */
+
+/* style du bloc ul */
+.menu-vertical
+{
+  width: 250px; /* optionnel, c'est pour la démo */
+  list-style: none; /* supprime les puces de liste */
+  padding: 4px; /* on fait un peu de place autour des liens */
+  margin: 0; /* on annule les marges */
+  /*background: #F2F2F2;*/
+  background: black;
+ /* background: -moz-linear-gradient(#444, #111);
+  background: -webkit-gradient(linear,left bottom,left top,color-stop(0, #111),color-stop(1, #444));
+  background: -webkit-linear-gradient(#444, #111);
+  background: -o-linear-gradient(#444, #111);
+  background: -ms-linear-gradient(#444, #111);
+  background: linear-gradient(#444, #111);*/
+  font: bold 15px/25px Arial, Helvetica;
+  float: left;
+  width:100px;
+  height:850px;
+}
+ 
+/* styles des liens et éléments de liste */
+.mv-item,.mv-item a
+{
+  /* les liens et item deviennent des blocs */
+  /* suffit théoriquement à virer les puces de liste */
+  display: block;
+}
+ 
+/* styles des liens */
+.mv-item a
+{
+  margin: 1px 0; /* espace les liens d'1 px */
+  padding: 8px 20px; /* marges internes pour aérer */ 
+  color: #999;
+  background: #111;
+  text-decoration: none; /* on vire le soulignement */
+
+  /* on définit la transition pour les navigateurs */
+  -webkit-transition: all .3s; /* Chrome/Safari */
+  -moz-transition: all .3s; /* Firefox (plus trop nécessaire) */
+  transition: all .3s; /* syntaxe officielle */
+}
+ 
+/* styles changeants au survol et focus */
+.mv-item a:hover, .mv-item a:focus
+{
+  background: #E9C200;
+  color: #FFF;
+  padding-left: 30px; /* décalage du contenu de 10px vers la droite (30-20 = 10) */
+}
+
+
 /* Rétablissement du flottement */
-#menu:after{
-        visibility: hidden;
-        display: block;
-        font-size: 0;
-        content: " ";
-        clear: both;
-        height: 0;
+#menu:after
+{
+	visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
 }
 
 * html #menu             { zoom: 1; } /* IE6 */
 *:first-child+html #menu { zoom: 1; } /* IE7 */
 
+/* Caractéristiques */
+#caracteristics
+{
+	width:600px;
+	height:400px;
+	font: bold 15px/25px Arial, Helvetica;
+	border-top: 15px solid black;
+	border-left: 150px solid black;
+	
+	
+}
 
 /* Galerie */
 #galerie{

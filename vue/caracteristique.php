@@ -18,27 +18,46 @@
             </div>
 </header>
 
+<nav> 
+	<ul id="menu">
+    	<li> <a href="#">Gestion des hébergements</a></li>
+        <li> <a href="#"></a></li>
+        <li> <a href="#"></a></li>
+        <li> <a href="#"></a></li>
+    </ul>
+</nav>
+
+<div>
+<ul class="menu-vertical">
+    <li class="mv-item"><a href="#">test1</a></li>
+    <li class="mv-item"><a href="#">test2</a></li>
+    <li class="mv-item"><a href="#">test3</a></li>
+    <li class="mv-item"><a href="#">test4</a></li>
+</ul>
+</div>
+
 <div id="caracteristics">
 	<h3> Veuillez saisir les caractéistiques du nouvel hébergement </h3>
     <br>
-	<form action="Impot.php" method="GET"> /*Méthode GET pour tester les valeurs entrées */
-		<p>Nom de l'hébergement : <input type="text" name="Nom_Hebergement" /></p>
-        <p>Numéros de téléphone : <input type="text" name="Telephone" /></p>
-        <p>Capacité (nombre de personne) : <input type="text" name="Capacite" /></p>
-        <p>Nombre d'étoile : <input type="text" name="Etoile" /></p>
+	<form action="ajout_caracteristique.php" method="GET"> 
+    <!--Méthode GET pour tester les valeurs entrées--> 
+		<p>Nom de l'hébergement :  <input type="text" name="nom_hebergement" /></p>
+        <p>Numéros de téléphone :  <input type="text" name="telephone" /></p>
+        <p>Capacité (nombre de personne) : <input type="text" name="capacite" /></p>
+        <p>Nombre d'étoile : <input type="text" name="etoile" /></p>
         <p>RIB : <input type="text" name="RIB" /></p>
         <br>
         <h3> Adresse de l'hébergement </h3>
-        <p>Numéro de rue : <input type="text" name="Numero_rue" /></p>
-        <p>Nom de la rue : <input type="text" name="Nom_rue" /></p>
+        <p>Numéro de rue : <input type="text" name="numero_rue" /></p>
+        <p>Nom de la rue : <input type="text" name="nom_rue" /></p>
         <p>Code postal : <input type="text" name="CP" /></p>
-        <p>Ville : <input type="text" name="Ville" /></p>
+        <p>Ville : <input type="text" name="ville" /></p>
         <br>
         <h3> Contact de l'hébergement </h3>
-        <p>Nom du contact : <input type="text" name="Nom_contact" /></p>
-        <p>Prénom du contact : <input type="text" name="Prenom_contact" /></p>
-        <p>Adresse mail du contact : <input type="text" name="Mail_contact" /></p>
-        <p>Téléphone du contact : <input type="text" name="Telephone du contact" /></p>
+        <p>Nom du contact : <input type="text" name="nom_contact" /></p>
+        <p>Prénom du contact : <input type="text" name="prenom_contact" /></p>
+        <p>Adresse mail du contact : <input type="text" name="mail_contact" /></p>
+        <p>Téléphone du contact : <input type="text" name="telephone du contact" /></p>
         <p><input type="submit" value="Envoyer"></p>
      </form>
 
