@@ -290,17 +290,38 @@ nav li{
 * html #menu             { zoom: 1; } /* IE6 */
 *:first-child+html #menu { zoom: 1; } /* IE7 */
 
+/
+
 /* Caractéristiques */
 #caracteristics
 {
-	width:600px;
-	height:400px;
+	width:40%;
+	height: 30%;
 	font: bold 15px/25px Arial, Helvetica;
-	border-top: 15px solid black;
-	border-left: 150px solid black;
-	
 	
 }
+
+#general, #adresse, #contact
+{
+  
+  background: #333;
+    background: -moz-linear-gradient(#444, #111);
+    background: -webkit-gradient(linear,left bottom,left top,color-stop(0, #111),color-stop(1, #444));
+    background: -webkit-linear-gradient(#444, #111);
+    background: -o-linear-gradient(#444, #111);
+    background: -ms-linear-gradient(#444, #111);
+    background: linear-gradient(#444, #111);
+    -moz-border-radius: 5px;
+    background: linear-gradient(#444, #111) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border-radius: 5px;
+    min-height: 132px;
+    padding: 4px 0px 15px 20px;
+    width: 40%;
+    margin: 0 0% 0% 10%;
+	 
+	
+}
+
 
 /* Galerie */
 #galerie{
