@@ -29,9 +29,9 @@
 
 <div>
 <ul class="menu-vertical">
-    <li class="mv-item"><a href="#">test1</a></li>
-    <li class="mv-item"><a href="#">test2</a></li>
-    <li class="mv-item"><a href="#">test3</a></li>
+    <li class="mv-item"><a href="ajout_caracteristique.html">Ajouter</a></li>
+    <li class="mv-item"><a href="#">Modifier</a></li>
+    <li class="mv-item"><a href="#">Lister</a></li>
     <li class="mv-item"><a href="#">test4</a></li>
 </ul>
 </div>
@@ -40,7 +40,7 @@
 	<div id="general">
 	<h3> Veuillez saisir les caractéistiques du nouvel hébergement </h3>
     <br>
-	<form action="ajout_caracteristique.php" method="GET"> 
+	<form action="ajout_caracteristique.php" method="POST"> 
     <!--Méthode GET pour tester les valeurs entrées--> 
     	
         <h3>Caractéristiques générales</h3>
@@ -48,6 +48,7 @@
         <p>Numéros de téléphone :  <input type="tel" name="telephone" /></p>
         <p>Capacité (nombre de personne) : <input type="number" name="capacite" /></p>
         <p>Nombre d'étoile : <input type="number" name="etoile" /></p>
+        <p>Type hébergement : <input type="text" name="type" /></p>
         <p>RIB : <input type="text" name="RIB" /></p>
         </div>
         <br>
