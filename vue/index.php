@@ -2,7 +2,10 @@
 <html lang="fr">  
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="styles.css" media="all">	
+        <link rel="stylesheet" type="text/css" href="styles.css" media="all">
+        <link rel="stylesheet" href="owl.theme.css" type="text/css" />	 
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> 
+        <script src="owl.carousel.js"></script>  	
     </head>  
     
     <body>
@@ -30,7 +33,17 @@
             </nav>
             
             <div id="galerie"> 
-            
+                <div id="owl-demo" class="owl-carousel owl-theme" >								           
+                      <div>									             
+                        <a href= "https://www.facebook.com"><img src="images/promo1.jpg"/></a>          
+                      </div>									           
+                      <div >										             
+                        <a href= "https://www.google.com"> <img  src="images/promo2.jpg"  /></a>          
+                      </div>										           
+                      <div >											             
+                        <a href= "https://www.yahoo.com"><img src="images/promo3.jpg"  /></a>          
+                      </div>							         
+                </div>
             </div>
             
          <footer>

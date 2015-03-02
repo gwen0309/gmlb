@@ -14,6 +14,17 @@
  
 
   <?php 
+$host = "localhost";  
+$user = "maxim";
+$bdd = "bd_etu";
+$password  = "maxim";
+
+mysql_connect($host, $user,$password) or die("erreur de connexion au serveur");
+mysql_select_db($bdd) or die("erreur de connexion a la base de donnees");
+
+$query = "SELECT Nom, Prenom, Specilite  FROM etudiant ORDER BY nom, prenom";
+$result = mysql_query($query);
+  
 $querydate= "select * FROM projeter";
 $result = mysql_query($querydate);
 while($row=mysql_fetch_array($result)){ 
