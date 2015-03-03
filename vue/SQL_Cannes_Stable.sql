@@ -124,7 +124,7 @@ create table JOUER
 /*==============================================================*/
 create table JUGER
 (
-   ID_INDIVIDU          smallint not null auto_increment,
+   ID_INDIVIDU          smallint not null,
    ID_FILM              smallint not null,
    primary key (ID_INDIVIDU, ID_FILM)
 );
@@ -134,7 +134,7 @@ create table JUGER
 /*==============================================================*/
 create table JURY
 (
-   ID_INDIVIDU          smallint not null auto_increment,
+   ID_INDIVIDU          smallint not null,
    N__JURY              smallint,
    primary key (ID_INDIVIDU)
 );

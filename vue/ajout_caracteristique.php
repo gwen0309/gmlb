@@ -36,72 +36,73 @@ $type_heberg=$_POST['type'];
 
 if (empty($nom)) 
 {
-	echo "Vous n'avez pas saisi le nom de l'hébergement !<br/>"; 
+	//echo "Vous n'avez pas saisi le nom de l'hébergement !<br/>"; 
+	echo'<script>alert("Saisissez un hébergement !"); document.location.href="ajout_caracteristique.html";</script>';
 	exit;
 }
 else if (empty($tel))
 {
-	echo "Vous n'avez pas saisi le numéro de téléphone !<br/>"; 
+	echo'<script>alert("Saisissez un n° de téléphone !"); document.location.href="ajout_caracteristique.html";</script>';
 	exit;
 }
 else if (!is_numeric($capa))
 {
-	echo "Vous n'avez pas saisi la capacité !<br/>"; 
+	echo'<script>alert("Saisissez une capacité !"); document.location.href="ajout_caracteristique.html";</script>';
 	exit;
 }
 else if (!is_numeric($etoile))
 {
-	echo "Vous n'avez pas saisi le nombre d'étoile de l'hébergement !<br/>"; 
+	echo'<script>alert("Saisissez un nombre étoile !"); document.location.href="ajout_caracteristique.html";</script>'; 
 	exit;
 }
 else if (empty($rib))
 {
-	echo "Vous n'avez pas saisi le RIB !<br/>"; 
+	echo'<script>alert("Saisissez un RIB !"); document.location.href="ajout_caracteristique.html";</script>'; 
 	exit;
 }
 else if (!is_numeric($num_rue))
 {
-	echo "Vous n'avez pas saisi le numéro de la rue !<br/>"; 
+	echo'<script>alert("Saisissez un numéro de rue !"); document.location.href="ajout_caracteristique.html";</script>'; 
 	exit;
 }
 else if (empty($nom_rue))
 {
-	echo "Vous n'avez pas saisi le no de la rue !<br/>"; 
+	echo'<script>alert("Saisissez un nom de rue !"); document.location.href="ajout_caracteristique.html";</script>';
 	exit;
 }
 else if (!is_numeric($cp))
 {
-	echo "Vous n'avez pas saisi le code postal !<br/>"; 
+	echo'<script>alert("Saisissez un Code Postal !"); document.location.href="ajout_caracteristique.html";</script>'; 
 	exit;
 }
 else if (empty($ville))
 {
-	echo "Vous n'avez pas saisi la ville !<br/>"; 
+	echo'<script>alert("Saisissez une ville !"); document.location.href="ajout_caracteristique.html";</script>';
 	exit;
 }
 else if (empty($nom_contact))
 {
-	echo "Vous n'avez pas saisi le nomm du contact ! <br/>"; 
+	echo'<script>alert("Saisissez le nom du contact !"); document.location.href="ajout_caracteristique.html";</script>'; 
 	exit;
 }
 else if (empty($prenom_contact))
 {
-	echo "Vous n'avez pas saisi le prénom du contact ! <br/>"; 
+	echo'<script>alert("Saisissez le prénom du contact !"); document.location.href="ajout_caracteristique.html";</script>'; 
 	exit;
 }
-else if (!eregi("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*$",$mail))
+else if (empty($mail))
 {
-	echo "L'adresse email est invalide !<br/>"; 
+	echo'<script>alert("Saisissez un email valide !"); document.location.href="ajout_caracteristique.html";</script>'; 
 	exit;
 }
 else if (!is_numeric($tel_contact))
 {
-	echo "Vous n'avez pas saisi le numéro de téléphone du contact !<br/>"; 
+	echo'<script>alert("Saisissez le numéro de téléphone du contact !"); document.location.href="ajout_caracteristique.html";</script>';
 	exit;
 }
 else if (empty($type_heberg))
 {
-	echo "Vous n'avez pas saisi le type de l'hébergement ! <br/>"; 
+	echo'<script>alert("Saisissez un type hébergement !"); document.location.href="ajout_caracteristique.html";</script>';
 	exit;
 }
 // Creation et envoi de la requete
@@ -112,7 +113,12 @@ mysqli_query ($con, $query) or die ('Erreur SQL !'.$query.'<br />'.mysqli_error(
 
 //On ferme la connexion à la base de donnée
 mysqli_close($con);
-echo "alert(Ajout réussi !);";
+echo'<script>
+alert("Ajout Réussi !!");
+document.location.href="ajout_caracteristique.html";
+</script>';
+
+
 ?>
 
 </body>
