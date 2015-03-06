@@ -1,10 +1,16 @@
 /* General settings*/
 
 html, body {
-margin: 0 auto;
-width: 100%;
-background-color: black;
-color: white;
+    margin: 0 auto;
+    width: 100%;
+    background-color: black;
+    color: white;
+    font-family:  'Century Gothic';
+
+}
+
+div{
+    font-family:  'Century Gothic';    
 }
 
 a{
@@ -41,7 +47,7 @@ header{
 #logoCannes{
     width : 14%;
     display: inline;
-    margin: 0 2%;
+    margin: 0 4%;
 }
 
 #banniere{
@@ -305,18 +311,48 @@ nav li{
 /* Galerie */
 #galerie{
     background-color: black;
-    height: 300px;
+    height: auto;
     margin: 5% 15%;
     width: 70%;
 }
 
 /* Footer */
 footer{
-    background-color: grey;
-    height: 100px;
-    margin: 5% 15%;
-    width: 70%;:
+    background-color: black;
+    height: auto;
+    margin: 2% 15%;
+    width: 70%;
 }
+
+footer h2{
+    width: 16%;
+    margin: 1% 2%;
+    display: inline-block;
+    font-size: 20px;
+    vertical-align: top;
+}
+
+footer ul{
+    display: inline;
+    list-style: none;
+}
+
+footer li{
+    display: inline;
+    margin: 0 1px;
+}
+footer img{
+    height: 40px;
+    width: 40px;
+}
+#socialnetwork{
+    display: inline-block;
+    width: 30%;
+    margin-left: 49%;
+    height: 40px;
+}
+
+
 
 /*Page de connexion */
 #login{
