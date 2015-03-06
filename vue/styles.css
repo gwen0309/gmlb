@@ -65,7 +65,7 @@ nav li{
     margin-right:5%;
 }
 
-/* TEST MENU HORIZONTAL */
+/* MENU HORIZONTAL */
 
 #menu{
         width: 100%;
@@ -303,9 +303,25 @@ nav li{
 	height:400px;
 	font: bold 15px/25px Arial, Helvetica;
 	border-top: 15px solid black;
-	border-left: 150px solid black;
+	border-left: 150px solid black;	
+}
+
+/* Tableau liste */
+
+table
+{
+	/*border: medium solid #CBCBCB; */
+	border-collapse: collapse;
+	width: 140%; 
 	
-	
+}
+td, th, tr
+{
+	border: thin solid #CBCBCB;
+	width: auto; 
+	padding: 5px; 
+	text-align: center; 
+	width: 17%; 
 }
 
 /* Galerie */
@@ -321,6 +337,9 @@ footer{
     background-color: black;
     height: auto;
     margin: 2% 15%;
+    background-color: grey;
+    height: 100px;
+    margin: 5% 15%;
     width: 70%;
 }
 
