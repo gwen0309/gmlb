@@ -293,7 +293,7 @@ for($jour=6;$jour<11;$jour++){
 }
 
 echo "</tr>
-	<tr>  <td>Projection Après-midi</td>
+	<tr>  <td>Projection Soir</td>
 	<td>Salle 2</td>";
 for($jour=6;$jour<11;$jour++){
 	$c=0;
