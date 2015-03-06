@@ -1,20 +1,11 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 </head>
 
 <body>
 	  <table width="800" border="1">
-  <tr>
-    <td>Heures</td>
-    <td>J-1 01/03/15</td>
-	<td>J-2 02/03/15</td>
-	<td>J-3 03/03/15</td>
-	<td>J-4 04/03/15</td>
-	<td>J-5 05/03/15</td>
-  </tr>
-
- 
 
   <?php 
 $host = "localhost";  
@@ -25,7 +16,7 @@ $password  = "";
 mysql_connect($host, $user,$password) or die("erreur de connexion au serveur");
 mysql_select_db($bdd) or die("erreur de connexion a la base de donnees");
   
-$querydate= "select NOM_FILM, TIME(DATE_DEBUT_PROJECTION), TIME(DATE_FIN_PROJECTION) FROM projeter p INNER JOIN films f WHERE f.ID_FILM = p.ID_FILM ORDER BY NOM_FILM";
+$querydate= "select NOM_FILM, TIME(DATE_DEBUT_PROJECTION), TIME(DATE_FIN_PROJECTION), DATE(DATE_DEBUT_PROJECTION) FROM projeter p INNER JOIN films f WHERE f.ID_FILM = p.ID_FILM ORDER BY NOM_FILM";
 $result = mysql_query($querydate);
 
 if($result === FALSE) { 
@@ -33,73 +24,348 @@ if($result === FALSE) {
 }
 
 
+$i = 0;
+while($row = mysql_fetch_array($result)){
+	foreach($row as $key => $value)
+{
+   echo $key." is ". $value;
+}
+$Nom[$i] = $row['NOM_FILM'];
+$DateDeb[$i] = $row['TIME(DATE_DEBUT_PROJECTION)'];
+$DateFin[$i] = $row['TIME(DATE_FIN_PROJECTION)'];
+$jourDebut[$i] = $row['DATE(DATE_DEBUT_PROJECTION)'];
+$i++;
 
-while($row = mysql_fetch_row($result)){
-$Nom = $row[0];
-$DateDeb = $row[1];
-$DateFin = $row[2];
+}
+echo
+ " <tr>
+    <td>Heures</td>
+	<td>Salle</td>
+    <td>J-1 06/05/15</td>
+	<td>J-2 07/05/15</td>
+	<td>J-3 08/05/15</td>
+	<td>J-4 09/05/15</td>
+	<td>J-5 10/05/15</td>
+  </tr>";
 
-var_dump($row);
-//if($DateDeb==""){
+//Projection matin dans 3 les salles
+echo"<tr>  <td></td>
+	<td>Salle 1</td>";
+for($jour=6;$jour<11;$jour++){
+	$c=0;
+	if($jour<10){
+		for( $j=0;$j<$i;$j++){
+			if($jourDebut[$j]=="2015-05-0".$jour){ 
+				
+				if($DateDeb[$j]>= "08:00:00" && $DateDeb[$j]<= "12:59:00"){
+					echo  "<td>$Nom[$j]<br>$DateDeb[$j] - $DateFin[$j]</td>"; 
+					$c++;
+				}
+			}
+			
+		}
+	}else{
+		for( $j=0;$j<$i;$j++){
+			if($jourDebut[$j]=="2015-05-".$jour){ 
+				
+				if($DateDeb[$j]>= "08:00:00" && $DateDeb[$j]<= "12:59:00"){
+					echo  "<td>$Nom[$j]<br>$DateDeb[$j] - $DateFin[$j]</td>"; 
+					$c++;
+				}
+			}
+			
+		}
+	}
+	if($c==0)
+	{
+		echo "<td></td>";
+	}
+}
 
-echo"<tr>  <td>9:30</td>";
-if($DateDeb>= "07:45:00" && $DateDeb<= "07:59:00"){
-echo  "<td>$Nom<br>$DateDeb - $DateFin</td>"; }
-if($DateFin>= "08:00:00" && $DateFin<= "08:14:00"){
-echo "</tr>";}
+echo "</tr>
+	<tr>  <td>Projection Matin</td>
+	<td>Salle 2</td>";
+for($jour=6;$jour<11;$jour++){
+	$c=0;
+		if($jour<10){
+		for( $j=0;$j<$i;$j++){
+			if($jourDebut[$j]=="2015-05-0".$jour){ 
+				
+				if($DateDeb[$j]>= "08:00:00" && $DateDeb[$j]<= "12:59:00"){
+					echo  "<td>$Nom[$j]<br>$DateDeb[$j] - $DateFin[$j]</td>"; 
+					$c++;
+				}
+			}
+			
+		}
+	}else{
+		for( $j=0;$j<$i;$j++){
+			if($jourDebut[$j]=="2015-05-".$jour){ 
+				
+				if($DateDeb[$j]>= "08:00:00" && $DateDeb[$j]<= "12:59:00"){
+					echo  "<td>$Nom[$j]<br>$DateDeb[$j] - $DateFin[$j]</td>"; 
+					$c++;
+				}
+			}
+			
+		}
+	}
+	if($c==0)
+	{
+		echo "<td></td>";
+	}
+}
+echo "</tr>
+<tr>  <td></td>
+<td>Salle 3</td>";
+for($jour=6;$jour<11;$jour++){
+	$c=0;
+		if($jour<10){
+		for( $j=0;$j<$i;$j++){
+			if($jourDebut[$j]=="2015-05-0".$jour){ 
+				
+				if($DateDeb[$j]>= "08:00:00" && $DateDeb[$j]<= "12:59:00"){
+					echo  "<td>$Nom[$j]<br>$DateDeb[$j] - $DateFin[$j]</td>"; 
+					$c++;
+				}
+			}
+			
+		}
+	}else{
+		for( $j=0;$j<$i;$j++){
+			if($jourDebut[$j]=="2015-05-".$jour){ 
+				
+				if($DateDeb[$j]>= "08:00:00" && $DateDeb[$j]<= "12:59:00"){
+					echo  "<td>$Nom[$j]<br>$DateDeb[$j] - $DateFin[$j]</td>"; 
+					$c++;
+				}
+			}
+			
+		}
+	}
+	if($c==0)
+	{
+		echo "<td></td>";
+	}
+}
+echo "</tr>";
+//Fin projection matin
 
-echo"<tr>  <td>10:00</td>";
-if($DateDeb>= "08:00:00" && $DateDeb<= "08:14:00"){
-echo  "<td>$Nom<br>".$DateDeb." - ".$DateFin."</td>"; }
-if($DateFin>= "08:15:00" && $DateFin<= "08:29:00"){
-echo "</tr>";}
 
-echo"<tr>  <td>10:30</td>";
-if($DateDeb>= "08:15:00" && $DateDeb<= "08:29:00"){
-echo  "<td>$Nom<br>".$DateDeb." - ".$DateFin."</td>"; }
-if($DateFin>= "08:30:00" && $DateFin<= "08:44:00"){
-echo "</tr>";}
+//Projection AM dans 3 les salles
+echo"<tr>  <td></td>
+<td>Salle 1</td>";
+for($jour=6;$jour<11;$jour++){
+	$c=0;
+		if($jour<10){
+		for( $j=0;$j<$i;$j++){
+			if($jourDebut[$j]=="2015-05-0".$jour){ 
+				
+				if($DateDeb[$j]>= "13:00:00" && $DateDeb[$j]<= "16:59:00"){
+					echo  "<td>$Nom[$j]<br>$DateDeb[$j] - $DateFin[$j]</td>"; 
+					$c++;
+				}
+			}
+			
+		}
+	}
+	if($jour>=10){
+		for( $j=0;$j<$i;$j++){
+			if($jourDebut[$j]=='2015-05-'.$jour){ 
+			
+				if($DateDeb[$j]>= "13:00:00" && $DateDeb[$j]<= "16:59:00"){
+					echo  "<td>$Nom[$j]<br>$DateDeb[$j] - $DateFin[$j]</td>"; 
+					$c++;
+				}
+			}
+			
+		}
+	}
+	if($c==0)
+	{
+		echo "<td></td>";
+	}
+}
+
+echo "</tr>
+	<tr>  <td>Projection Après-midi</td>
+	<td>Salle 2</td>";
+for($jour=6;$jour<11;$jour++){
+	$c=0;
+		if($jour<10){
+		for( $j=0;$j<$i;$j++){
+			if($jourDebut[$j]=="2015-05-0".$jour){ 
+				
+				if($DateDeb[$j]>= "13:00:00" && $DateDeb[$j]<= "16:59:00"){
+					echo  "<td>$Nom[$j]<br>$DateDeb[$j] - $DateFin[$j]</td>"; 
+					$c++;
+				}
+			}
+			
+		}
+	}else{
+		for( $j=0;$j<$i;$j++){
+			if($jourDebut[$j]=="2015-05-".$jour){ 
+				
+				if($DateDeb[$j]>= "13:00:00" && $DateDeb[$j]<= "16:59:00"){
+					echo  "<td>$Nom[$j]<br>$DateDeb[$j] - $DateFin[$j]</td>"; 
+					$c++;
+				}
+			}
+			
+		}
+	}
+	if($c==0)
+	{
+		echo "<td></td>";
+	}
+}
+echo "</tr>
+<tr>  <td></td>
+<td>Salle 3</td>";
+for($jour=6;$jour<11;$jour++){
+	$c=0;
+	if($jour<10){
+		for( $j=0;$j<$i;$j++){
+			if($jourDebut[$j]=="2015-05-0".$jour){ 
+		
+				if($DateDeb[$j]>= "13:00:00" && $DateDeb[$j]<= "16:59:00"){
+					echo  "<td>$Nom[$j]<br>$DateDeb[$j] - $DateFin[$j]</td>"; 
+					$c++;
+				}
+			}
+			
+		}
+	}else{
+		for( $j=0;$j<$i;$j++){
+			if($jourDebut[$j]=='2015-05-'.$jour){ 
+			
+				if($DateDeb[$j]>= "13:00:00" && $DateDeb[$j]<= "16:59:00"){
+					echo  "<td>$Nom[$j]<br>$DateDeb[$j] - $DateFin[$j] </td>"; 
+					$c++;
+				}
+			}
+			
+		}
+	}
+	if($c==0)
+	{
+		echo "<td></td>";
+	}
+}
+
+echo "</tr>";
+//Fin projection AM
+
+//Projection soir dans 3 les salles
+echo"<tr>  <td></td>
+<td>Salle 1</td>";
+for($jour=6;$jour<11;$jour++){
+	$c=0;
+		if($jour<10){
+		for( $j=0;$j<$i;$j++){
+			if($jourDebut[$j]=="2015-05-0".$jour){ 
+				
+				if($DateDeb[$j]>= "17:00:00" && $DateDeb[$j]<= "20:59:00"){
+					echo  "<td>$Nom[$j]<br>$DateDeb[$j] - $DateFin[$j]</td>"; 
+					$c++;
+				}
+			}
+			
+		}
+	}
+	if($jour>=10){
+		for( $j=0;$j<$i;$j++){
+			if($jourDebut[$j]=='2015-05-'.$jour){ 
+			
+				if($DateDeb[$j]>= "17:00:00" && $DateDeb[$j]<= "20:59:00"){
+					echo  "<td>$Nom[$j]<br>$DateDeb[$j] - $DateFin[$j]</td>"; 
+					$c++;
+				}
+			}
+			
+		}
+	}
+	if($c==0)
+	{
+		echo "<td></td>";
+	}
+}
+
+echo "</tr>
+	<tr>  <td>Projection Après-midi</td>
+	<td>Salle 2</td>";
+for($jour=6;$jour<11;$jour++){
+	$c=0;
+		if($jour<10){
+		for( $j=0;$j<$i;$j++){
+			if($jourDebut[$j]=="2015-05-0".$jour){ 
+				
+				if($DateDeb[$j]>= "17:00:00" && $DateDeb[$j]<= "20:59:00"){
+					echo  "<td>$Nom[$j]<br>$DateDeb[$j] - $DateFin[$j]</td>"; 
+					$c++;
+				}
+			}
+			
+		}
+	}else{
+		for( $j=0;$j<$i;$j++){
+			if($jourDebut[$j]=="2015-05-".$jour){ 
+				
+				if($DateDeb[$j]>= "17:00:00" && $DateDeb[$j]<= "20:59:00"){
+					echo  "<td>$Nom[$j]<br>$DateDeb[$j] - $DateFin[$j]</td>"; 
+					$c++;
+				}
+			}
+			
+		}
+	}
+	if($c==0)
+	{
+		echo "<td></td>";
+	}
+}
+echo "</tr>
+<tr>  <td></td>
+<td>Salle 3</td>";
+for($jour=6;$jour<11;$jour++){
+	$c=0;
+	if($jour<10){
+		for( $j=0;$j<$i;$j++){
+			if($jourDebut[$j]=="2015-05-0".$jour){ 
+		
+				if($DateDeb[$j]>= "17:00:00" && $DateDeb[$j]<= "20:59:00"){
+					echo  "<td>$Nom[$j]<br>$DateDeb[$j] - $DateFin[$j]</td>"; 
+					$c++;
+				}
+			}
+			
+		}
+	}else{
+		for( $j=0;$j<$i;$j++){
+			if($jourDebut[$j]=='2015-05-'.$jour){ 
+			
+				if($DateDeb[$j]>= "17:00:00" && $DateDeb[$j]<= "20:59:00"){
+					echo  "<td>$Nom[$j]<br>$DateDeb[$j] - $DateFin[$j] </td>"; 
+					$c++;
+				}
+			}
+			
+		}
+	}
+	if($c==0)
+	{
+		echo "<td></td>";
+	}
+}
+
+echo "</tr>";
+//Fin projection Soir
+
+$jj=10;
+echo "2015-05-".$jj;
 
 
-echo"<tr>  <td>11:00</td>";
-if($DateDeb>= "08:30:00" && $DateDeb<= "08:44:00"){
-echo  "<td>$Nom<br>".$DateDeb." - ".$DateFin."</td>"; }
-if($DateFin>= "08:45:00" && $DateFin<= "08:59:00"){
-echo "</tr>";}
-
-
-echo"<tr>  <td>14:00</td>";
-if($DateDeb>= "08:45:00" && $DateDeb<= "08:59:00"){
-echo  "<td>$Nom<br>".$DateDeb." - ".$DateFin."</td>"; }
-if($DateFin>= "09:00:00" && $DateFin<= "09:14:00"){
-echo "</tr>";}
-
-echo"<tr>  <td>14:30</td>";
-if($DateDeb>= "09:00:00" && $DateDeb<= "09:14:00"){
-echo  "<td>$Nom<br>".$DateDeb." - ".$DateFin."</td>"; }
-if($DateFin>= "09:15:00" && $DateFin<= "09:29:00"){
-echo "</tr>";}
-
-echo"<tr>  <td>15:00</td>";
-if($DateDeb>= "09:15:00" && $DateDeb<= "09:29:00"){
-echo  "<td>$Nom<br>".$DateDeb." - ".$DateFin."</td>"; }
-if($DateFin>= "09:30:00" && $DateFin<= "09:44:00"){
-echo "</tr>";}
-
-
-echo"<tr>  <td>15:30</td>";
-if($DateDeb>= "09:30:00" && $DateDeb<= "09:44:00"){
-echo  "<td>$Nom<br>".$DateDeb." - ".$DateFin."</td>"; }
-if($DateFin>= "09:45:00" && $DateFin<= "09:59:00"){
-echo "</tr>";}
-
-
-
-//}
-
-
-
-
-else{echo  "<td></td>"; }}?>
+?>
 </body>
 </html>
