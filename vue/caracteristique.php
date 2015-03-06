@@ -29,9 +29,9 @@
 
 <div>
 <ul class="menu-vertical">
-    <li class="mv-item"><a href="ajout_caracteristique.html">Ajouter</a></li>
-    <li class="mv-item"><a href="#">Modifier</a></li>
-    <li class="mv-item"><a href="lister_hebergement.php">Lister</a></li>
+    <li class="mv-item"><a href="ajout_caracteristique.html">Ajout d'hébergement</a></li>
+    <li class="mv-item"><a href="#">test2</a></li>
+    <li class="mv-item"><a href="#">test3</a></li>
     <li class="mv-item"><a href="#">test4</a></li>
 </ul>
 </div>

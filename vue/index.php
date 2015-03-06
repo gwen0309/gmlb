@@ -25,7 +25,7 @@
         
             <nav> 
                 <ul id="menu">
-                    <li> <a href="index_hébergement.html">A propos</a></li>
+                    <li> <a href="hébergement.html">A propos</a></li>
                     <li> <a href="#">Festival 2014 </a></li>
                     <li> <a href="#">Le quotidien</a></li>
                     <li> <a href="#">Archive </a></li>
