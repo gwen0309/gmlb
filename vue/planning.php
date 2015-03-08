@@ -2,9 +2,25 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+ 
+  <script>
+  $(document).ready(function(){
+ 
+	$('table td').dblclick(function(){
+		var cell = $(this).attr('id');
+		var aa = document.getElementById(cell).innerHTML;
+		alert('Cellule: '+aa);
+ 
+	});
+  });
+  </script>
+
 </head>
 
 <body>
+  
 	  <table width="800" border="1">
 
   <?php 
@@ -15,21 +31,25 @@ $password  = "";
 
 mysql_connect($host, $user,$password) or die("erreur de connexion au serveur");
 mysql_select_db($bdd) or die("erreur de connexion a la base de donnees");
+
+//$film=$_POST['film'];
+//$salle=$_POST['salle'];
   
 $querydate= "select NOM_FILM, TIME(DATE_DEBUT_PROJECTION), TIME(DATE_FIN_PROJECTION), DATE(DATE_DEBUT_PROJECTION) FROM projeter p INNER JOIN films f WHERE f.ID_FILM = p.ID_FILM ORDER BY NOM_FILM";
+
 $result = mysql_query($querydate);
 
-if($result === FALSE) { 
+if($result === FALSE ) { 
     die(mysql_error()); 
 }
 
 
 $i = 0;
+$compteur=0;
+
 while($row = mysql_fetch_array($result)){
 	foreach($row as $key => $value)
-{
-   echo $key." is ". $value;
-}
+
 $Nom[$i] = $row['NOM_FILM'];
 $DateDeb[$i] = $row['TIME(DATE_DEBUT_PROJECTION)'];
 $DateFin[$i] = $row['TIME(DATE_FIN_PROJECTION)'];
@@ -37,8 +57,9 @@ $jourDebut[$i] = $row['DATE(DATE_DEBUT_PROJECTION)'];
 $i++;
 
 }
+
 echo
- " <tr>
+ "<tr>
     <td>Heures</td>
 	<td>Salle</td>
     <td>J-1 06/05/15</td>
@@ -57,9 +78,10 @@ for($jour=6;$jour<11;$jour++){
 		for( $j=0;$j<$i;$j++){
 			if($jourDebut[$j]=="2015-05-0".$jour){ 
 				
-				if($DateDeb[$j]>= "08:00:00" && $DateDeb[$j]<= "12:59:00"){
-					echo  "<td>$Nom[$j]<br>$DateDeb[$j] - $DateFin[$j]</td>"; 
+				if($DateDeb[$j]>= "08:00:00" && $DateDeb[$j]<= "12:59:00"&& $DateDeb[$j]<= "12:59:00"){
+					echo  "<td id='film".$compteur."'>$Nom[$j]<br>$DateDeb[$j] - $DateFin[$j]</td>"; 
 					$c++;
+					$compteur++;
 				}
 			}
 			
@@ -359,13 +381,14 @@ for($jour=6;$jour<11;$jour++){
 	}
 }
 
-echo "</tr>";
+echo "</tr></table>";
 //Fin projection Soir
 
-$jj=10;
-echo "2015-05-".$jj;
-
-
 ?>
+
+<form action='ajout_projection.php' > 
+<input type='submit' value='Ajouter une projection'>
+</form>
+
 </body>
 </html>
