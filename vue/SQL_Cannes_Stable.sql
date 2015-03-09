@@ -34,30 +34,36 @@ drop table if exists SALLE;
 
 drop table if exists SERVICE;
 
+drop table if exists UTILISATEUR
+
 /*==============================================================*/
 /* Table : ACTEUR                                               */
 /*==============================================================*/
 create table ACTEUR
 (
-   ID_INDIVIDU          smallint not null auto_increment,
+<<<<<<< HEAD
+   ID_INDIVIDU             smallint       not null,
   /* ID_ACTEUR		   smallint       not null,*/
+=======
+   ID_INDIVIDU          smallint not null,        
+>>>>>>> origin/master
    PERSONNAGE_INTERPRETE char(50),
    primary key (ID_INDIVIDU)
 );
 
 /*==============================================================*/
-/* Table : CHAMBRE_MH                                           */
+/* Table : CHAMBRE                                              */
 /*==============================================================*/
-create table CHAMBRE_MH
+create table CHAMBRE
 (
-   ID_TYPE_DE_CHAMBRE_MH smallint not null auto_increment,
+   ID_CHAMBRE           smallint not null auto_increment,
    ID_HEBERGEMENT       int not null,
-   NOM_TYPE_DE_CHAMBRE_MH varchar(20),
+   NOM_TYPE_DE_CHAMBRE varchar(20),
    NOMBRE_LITS          smallint,
    CAPACITE_MAXIMALE    smallint,
    ETAT                 smallint,
    NUMERO_CHAMBRE       tinyint,
-   primary key (ID_TYPE_DE_CHAMBRE_MH)
+   primary key (ID_CHAMBRE)
 );
 
 /*==============================================================*/
@@ -78,21 +84,21 @@ create table FILMS
 /*==============================================================*/
 create table HEBERGEMENT
 (
-   ID_HEBERGEMENT       smallint not null auto_increment,
-   NOM_HEBERGEMENT      varchar(50),
-   TEL_HEBERGEMENT      numeric(50,0),
-   CAPACITE_HEBERGEMENT smallint,
-   NOMBRE_ETOILES       tinyint,
-   RIB                  varchar(30),
-   NUMERO_RUE_HEBERGEMENT smallint,
-   RUE_HEBERGEMENT      varchar(200),
-   CODE_POSTAL_HEBERGEMENT int,
-   VILLE_HEBERGEMENT    varchar(50),
-   NOM_CONTACT          varchar(50),
-   PRENOM_CONTACT       varchar(50),
-   MAIL_CONTACT         varchar(50),
-   TEL_CONTACT          numeric(50),
-   TYPE_HEBERGEMENT     char(20),
+   ID_HEBERGEMENT       smallint         not null auto_increment,
+   NOM_HEBERGEMENT      varchar(50)      null,
+   TEL_HEBERGEMENT      numeric(50)      null,
+   CAPACITE_HEBERGEMENT smallint         null,
+   NOMBRE_ETOILES       tinyint          null,
+   RIB                  varchar(30)      null,
+   NUMERO_RUE_HEBERGEMENT smallint       null,
+   RUE_HEBERGEMENT      varchar(200)     null,
+   CODE_POSTAL_HEBERGEMENT int           null,
+   VILLE_HEBERGEMENT    varchar(50)      null,
+   NOM_CONTACT          varchar(50)      null,
+   PRENOM_CONTACT       varchar(50)      null,
+   MAIL_CONTACT         varchar(50)      null,
+   TEL_CONTACT          numeric(50)      null,
+   TYPE_HEBERGEMENT     char(20)         null,
    primary key (ID_HEBERGEMENT)
 );
 
@@ -102,10 +108,10 @@ create table HEBERGEMENT
 create table INDIVIDU
 (
    ID_INDIVIDU          smallint not null auto_increment,
-   NOM_INDIVIDU         varchar(20),
-   PRENOM_INDIVIDU      varchar(20),
-   TEL_INDIVIDU         numeric(20,0),
-   TYPE_INDIVIDU        char(12),
+   NOM_INDIVIDU         varchar(20) null,
+   PRENOM_INDIVIDU      varchar(20) null,
+   TEL_INDIVIDU         numeric(20) null,
+   TYPE_INDIVIDU        char(12)    null,
    primary key (ID_INDIVIDU)
 );
 
@@ -114,7 +120,11 @@ create table INDIVIDU
 /*==============================================================*/
 create table JOUER
 (
-   ID_INDIVIDU          smallint not null /*auto_increment*/,               
+<<<<<<< HEAD
+   ID_INDIVIDU          smallint not null,               
+=======
+   ID_INDIVIDU          smallint not null,
+>>>>>>> origin/master
    ID_FILM              smallint not null,
    primary key (ID_INDIVIDU, ID_FILM)
 );
@@ -146,10 +156,16 @@ create table PROJETER
 (
    ID_FILM              smallint not null,
    ID_SALLE             smallint not null,
-   ID_PROJECTION        smallint /*auto increment*/,
+   ID_PROJECTION        smallint auto_increment,
+<<<<<<< HEAD
+   DATE_DEBUT_PROJECTION timestamp null,
+   DATE_FIN_PROJECTION  timestamp null,
+   primary key (ID_FILM, ID_SALLE, ID_PROJECTION)
+=======
    DATE_DEBUT_PROJECTION timestamp,
    DATE_FIN_PROJECTION  timestamp,
    primary key (ID_FILM, ID_SALLE)
+>>>>>>> origin/master
 );
 
 /*==============================================================*/
@@ -168,7 +184,7 @@ create table PROPOSER
 create table REALISATEUR
 (
    ID_INDIVIDU          smallint not null,
-   NOMBRE_DE_FILMS_PRESENTES smallint,
+   NOMBRE_DE_FILMS_PRESENTES smallint null,
    primary key (ID_INDIVIDU)
 );
 
@@ -187,13 +203,19 @@ create table REALISER
 /*==============================================================*/
 create table RESERVER
 (
-   ID_TYPE_DE_CHAMBRE_MH smallint not null,
+   ID_CHAMBRE           smallint not null,
    ID_INDIVIDU          smallint not null,
-   ID_RESERVATION       varchar(10), /*smallint ou integer + auto incrment*/                                                   
+<<<<<<< HEAD
+   ID_RESERVATION       smallint not null auto_increment,                                                   
+   DATE_DEBUT_SEJOUR    timestamp null,
+   DATE_FIN_SEJOUR      timestamp null,
+=======
+   ID_RESERVATION       int auto_increment,                                                   
    DATE_DEBUT_SEJOUR    timestamp,
    DATE_FIN_SEJOUR      timestamp,
+>>>>>>> origin/master
    NOMBRE_DE__PERSONNES int,
-   primary key (ID_TYPE_DE_CHAMBRE_MH, ID_INDIVIDU) /*primary key voir pour id resa**/
+   primary key (ID_TYPE_DE_CHAMBRE_MH, ID_INDIVIDU, ID_RESERVATION) /*primary key voir pour id resa*/
 );
 
 /*==============================================================*/
@@ -202,12 +224,12 @@ create table RESERVER
 create table SALLE
 (
    ID_SALLE             tinyint not null auto_increment,
-   NOM_SALLE            varchar(50),
-   CAPACITE             smallint,
-   NUMERO_RUE_SALLE     smallint,
-   RUE_SALLE            varchar(200),
-   CODE_POSTAL_SALLE    int,
-   VILLE_SALLE          varchar(50),
+   NOM_SALLE            varchar(50) null,
+   CAPACITE             smallint null,
+   NUMERO_RUE_SALLE     smallint null,
+   RUE_SALLE            varchar(200) null,
+   CODE_POSTAL_SALLE    int null,
+   VILLE_SALLE          varchar(50) null,
    primary key (ID_SALLE)
 );
 
@@ -217,9 +239,21 @@ create table SALLE
 create table SERVICE
 (
    ID_SERVICE           smallint not null auto_increment,
-   NOM_SERVICE          varchar(50),
+   NOM_SERVICE          varchar(50) null,
    primary key (ID_SERVICE)
 );
+
+/*==============================================================*/
+/* Table : UTILISATEUR                                          */
+/*==============================================================*/
+create table UTILISATEUR
+(
+   ID_UTILISATEUR       smallint not null auto_increment,
+   LOGIN                varchar(20) null,
+   PASSWORD             varchar(20) null,
+   primary key (ID_UTILISATEUR)
+);
+
 
 alter table ACTEUR add constraint FK_ETRE foreign key (ID_INDIVIDU)
       references INDIVIDU (ID_INDIVIDU) on delete restrict on update restrict;

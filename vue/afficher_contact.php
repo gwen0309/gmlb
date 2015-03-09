@@ -1,4 +1,13 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Document sans titre</title>
+</head>
+
+<body>
+</body>
+</html><!DOCTYPE html>
 <html lang="fr"> 
 <head>
 <meta charset="utf-8">	       
@@ -14,7 +23,7 @@
             </div>
             
             <div id="banniere">
-                <img src="images/bannerblanc.png" alt="Banner" />
+                <img src="images/banner.png" alt="Banner" />
             </div>
 </header>
 
@@ -42,43 +51,39 @@ $host = "localhost";
 $user = "root";
 $bdd = "filrouge";
 $password  = "";
+
+//Récupération de la variable
+//include('lister_hebergement.php');
+$ID=$_GET['ID_H'];
 // Connexion au serveur
 $con = mysqli_connect($host, $user, $password);
 mysqli_select_db($con, $bdd) or die("erreur lors de la selection de la bd");
 // Creation et envoi de la requete
-$query = "SELECT ID_HEBERGEMENT, NOM_HEBERGEMENT, TEL_HEBERGEMENT, CAPACITE_HEBERGEMENT, NOMBRE_ETOILES FROM HEBERGEMENT ORDER BY ID_HEBERGEMENT";
-//Test de la requète et affichage de la requète
+$query = "SELECT NOM_CONTACT, PRENOM_CONTACT, MAIL_CONTACT, TEL_CONTACT FROM HEBERGEMENT WHERE ID_HEBERGEMENT LIKE '".$ID."'";
+//Test de la requète
 ?>
-
 <table>
 		<tr>
-        <th>Nom de l'hébergement</th>
-        <th>Numéro de téléphone</th>
-        <th>Capacité</th>
-        <th>Nombre d'étoile (*)</th>
-        <th>Services proposés</th>
-        <th>Information Contact</th>
+        <th>Nom du contact</th>
+        <th>Prénom du contact </th>
+        <th>Mail du contact</th>
+        <th>Téléphone du contact</th>
         </tr>
 <?php
 if ($result=mysqli_query($con,$query))
   {
   while ($row=mysqli_fetch_row($result))
     {
-		$ID_H = $row[0]; 
-		$Nom_heberg = $row[1];
-		$Tel_heberg = $row[2];
-		$Capa_heberg = $row[3];
-		$etoile_heberg = $row[4];
+		$Nom_contact = $row[0]; 
+		$Prenom_contact = $row[1];
+		$Tel_contact = $row[2];
+		$Mail_contact = $row[3];
 		echo "
 		<tr>
-		<td> $Nom_heberg</td>
-		<td><a> $Tel_heberg</a></td>
-		<td><a> $Capa_heberg</a></td>
-		<td><a> $etoile_heberg</a></td>
-		<form action="."services.php"." method="."POST"."> 
-		<td><a href="."#"." value="."$query".">Voir</td>
-		</form>	
-		<td><a href="."afficher_contact.php?ID_H=".$ID_H.">Voir</a></td>	
+		<td>$Nom_contact</td>
+		<td><a>$Prenom_contact</a></td>
+		<td><a>$Tel_contact</a></td>
+		<td><a>$Mail_contact</a></td>
 		</tr>
 		";
     }
