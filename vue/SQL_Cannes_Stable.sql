@@ -39,8 +39,7 @@ drop table if exists SERVICE;
 /*==============================================================*/
 create table ACTEUR
 (
-   ID_INDIVIDU          smallint not null auto_increment,
-  /* ID_ACTEUR		   smallint       not null,*/
+   ID_INDIVIDU          smallint not null,        
    PERSONNAGE_INTERPRETE char(50),
    primary key (ID_INDIVIDU)
 );
@@ -114,7 +113,7 @@ create table INDIVIDU
 /*==============================================================*/
 create table JOUER
 (
-   ID_INDIVIDU          smallint not null /*auto_increment*/,               
+   ID_INDIVIDU          smallint not null,
    ID_FILM              smallint not null,
    primary key (ID_INDIVIDU, ID_FILM)
 );
@@ -146,7 +145,7 @@ create table PROJETER
 (
    ID_FILM              smallint not null,
    ID_SALLE             smallint not null,
-   ID_PROJECTION        smallint /*auto increment*/,
+   ID_PROJECTION        smallint auto_increment,
    DATE_DEBUT_PROJECTION timestamp,
    DATE_FIN_PROJECTION  timestamp,
    primary key (ID_FILM, ID_SALLE)
@@ -189,11 +188,11 @@ create table RESERVER
 (
    ID_TYPE_DE_CHAMBRE_MH smallint not null,
    ID_INDIVIDU          smallint not null,
-   ID_RESERVATION       varchar(10), /*smallint ou integer + auto incrment*/                                                   
+   ID_RESERVATION       int auto_increment,                                                   
    DATE_DEBUT_SEJOUR    timestamp,
    DATE_FIN_SEJOUR      timestamp,
    NOMBRE_DE__PERSONNES int,
-   primary key (ID_TYPE_DE_CHAMBRE_MH, ID_INDIVIDU) /*primary key voir pour id resa**/
+   primary key (ID_TYPE_DE_CHAMBRE_MH, ID_INDIVIDU, ID_RESERVATION) /*primary key voir pour id resa*/
 );
 
 /*==============================================================*/
