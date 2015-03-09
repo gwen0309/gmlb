@@ -51,9 +51,7 @@ $host = "localhost";
 $user = "root";
 $bdd = "filrouge";
 $password  = "";
-
 //Récupération de la variable
-//include('lister_hebergement.php');
 $ID=$_GET['ID_H'];
 // Connexion au serveur
 $con = mysqli_connect($host, $user, $password);
@@ -62,7 +60,7 @@ mysqli_select_db($con, $bdd) or die("erreur lors de la selection de la bd");
 $query = "SELECT NOM_CONTACT, PRENOM_CONTACT, MAIL_CONTACT, TEL_CONTACT FROM HEBERGEMENT WHERE ID_HEBERGEMENT LIKE '".$ID."'";
 //Test de la requète
 ?>
-<table>
+<table id="liste_hebergement">
 		<tr>
         <th>Nom du contact</th>
         <th>Prénom du contact </th>

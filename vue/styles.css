@@ -308,20 +308,26 @@ nav li{
 
 /* Tableau liste */
 
-table
+.test
 {
-	/*border: medium solid #CBCBCB; */
-	border-collapse: collapse;
-	width: 140%; 
-	
+	border: none;
 }
+
+
+#liste_hebergement
+{
+	border-collapse: collapse;
+	width: 149%; 
+	height: auto;
+}
+
 td, th, tr
 {
 	border: thin solid #CBCBCB;
 	width: auto; 
 	padding: 5px; 
 	text-align: center; 
-	width: 17%; 
+	width: 30%; 
 }
 
 /* Galerie */

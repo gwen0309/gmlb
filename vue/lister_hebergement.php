@@ -50,7 +50,7 @@ $query = "SELECT ID_HEBERGEMENT, NOM_HEBERGEMENT, TEL_HEBERGEMENT, CAPACITE_HEBE
 //Test de la requète et affichage de la requète
 ?>
 
-<table>
+<table id="liste_hebergement">
 		<tr>
         <th>Nom de l'hébergement</th>
         <th>Numéro de téléphone</th>

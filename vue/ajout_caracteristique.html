@@ -38,61 +38,60 @@
 
 <div id="caracteristics">
 	<div id="general">
-	<h3> Veuillez saisir les caractéistiques du nouvel hébergement </h3>
+		<h3> Veuillez saisir les caractéistiques du nouvel hébergement </h3>
+    	<br>
+		<form action="ajout_caracteristique.php" method="POST">     	
+        	<h3>Caractéristiques générales</h3>
+			<p>Nom de l'hébergement :  <input type="text" name="nom_hebergement" required/></p>
+        	<p>Numéros de téléphone :  <input type="tel" name="telephone" required/></p>
+        	<p>Capacité (nombre de personne) : <input type="number" name="capacite" required/></p>
+        	<p>Nombre d'étoile : <input type="number" name="etoile" required/></p>
+        
+        	<select name="type" required>
+          	<option value="">-Choisir un type d'hébergement-</option>
+         	<option value="hotel">Hôtel</option>
+          	<option value="chambre">Chambre d'hôte</option>
+          	<option value="appartement">Appartement</option>
+          	<option value="villa">Villa</option>
+     		</select>
+        
+        	<p>RIB : <input type="text" name="RIB" required/></p>
+    </div>
     <br>
-	<form action="ajout_caracteristique.php" method="POST"> 
-    <!--Méthode GET pour tester les valeurs entrées--> 
-    	
-        <h3>Caractéristiques générales</h3>
-		<p>Nom de l'hébergement :  <input type="text" name="nom_hebergement" required/></p>
-        <p>Numéros de téléphone :  <input type="tel" name="telephone" required/></p>
-        <p>Capacité (nombre de personne) : <input type="number" name="capacite" required/></p>
-        <p>Nombre d'étoile : <input type="number" name="etoile" required/></p>
-        <select name="type" required >
-          <option value="">-Choisir un type d'hébergement-</option>
-          <option value="hotel">Hôtel</option>
-          <option value="chambre">Chambre d'hôte</option>
-          <option value="appartement">Appartement</option>
-          <option value="villa">Villa</option>
-     	</select>
-        <p>RIB : <input type="text" name="RIB" required/></p>
-        </div>
-        <br>
-        <div id="service">
+	<div id="service">
         <h3>Ajout service</h3>
-        <th><input type="checkbox" name="sauna" value="sauna">Sauna<br></th>
-        <th><input type="checkbox" name="hammam" value="hammam">Hammam<br></th>
-        <th><input type="checkbox" name="piscine" value="piscine">Piscine<br></th>
-        <th><input type="checkbox" name="spa" value="spa">Spa<br></th>
-        <th><input type="checkbox" name="bar" value="bar">Bar<br></th>
-        <th><input type="checkbox" name="club" value="club">Discothèque<br></th>
-        <th><input type="checkbox" name="casino" value="casino">Casino<br></th>
-        <th><input type="checkbox" name="restaurant" value="Restaurant">Restaurant<br></th>
-        <th><input type="checkbox" name="sport" value="sport">Salle de sport<br></th>
-        <th><input type="checkbox" name="golf" value="golf">Golf<br></th>
-        <th><input type="checkbox" name="wifi" value="wifi">Wifi<br></th> 
-        <th><input type="checkbox" name="room" value="room">Room Service Privatisé<br></th>   
-        <th><input type="checkbox" name="animaux" value="animaux">Toileteur pour animaux domestiques<br></th>    
-        <th><input type="checkbox" name="coq" value="coq">Combat de Coq<br></th>
-        </div>
-        <br>
-        <div id="adresse">
+        <input type="checkbox" name="service" value="sauna"/>Sauna<br>
+        <input type="checkbox" name="service" value="hammam"/>Hammam<br>
+        <input type="checkbox" name="service" value="piscine"/>Piscine<br>
+        <input type="checkbox" name="service" value="spa"/>Spa<br>
+        <input type="checkbox" name="service" value="bar"/>Bar<br>
+        <input type="checkbox" name="service" value="club"/>Discotrèque<br>
+        <input type="checkbox" name="service" value="casino"/>Casino<br>
+        <input type="checkbox" name="service" value="Restaurant"/>Restaurant<br>
+        <input type="checkbox" name="service" value="sport"/>Salle de sport<br>
+        <input type="checkbox" name="service" value="golf"/>Golf<br>
+        <input type="checkbox" name="service" value="wifi"/>Wifi<br> 
+        <input type="checkbox" name="service" value="room"/>Room Service Privatisé<br> 
+        <input type="checkbox" name="service" value="animaux"/>Toileteur pour animaux domestiques<br>    
+ 	</div>
+    <br>
+	<div id="adresse">
         <h3> Adresse de l'hébergement </h3>
         <p>Numéro de rue : <input type="number" name="numero_rue" required/></p>
         <p>Nom de la rue : <input type="text" name="nom_rue" required/></p>
         <p>Code postal : <input type="number" name="CP" required/></p>
         <p>Ville : <input type="text" name="ville" required/></p>
-        </div>
-        <br>
-        <div id="contact">
+	</div>
+    <br>
+	<div id="contact">
         <h3> Contact de l'hébergement </h3>
         <p>Nom du contact : <input type="text" name="nom_contact" required/></p>
         <p>Prénom du contact : <input type="text" name="prenom_contact" required/></p>
         <p>Adresse mail du contact : <input type="email" name="mail_contact" required/></p>
         <p>Téléphone du contact : <input type="tel" name="telephone_contact" required/></p>
         <p><input type="submit" value="Envoyer"></p>
-        <div>
-     </form>
+     <div>
+     	</form>
 
 
 </div>

@@ -14,10 +14,10 @@ $host = "localhost";
 $user = "root";
 $bdd = "filrouge";
 $password  = "";
+
 // Connexion au serveur
 $con = mysqli_connect($host, $user, $password);
 mysqli_select_db($con, $bdd) or die("erreur lors de la selection de la bd");
-
 
 $nom=$_POST['nom_hebergement'];
 $tel=$_POST['telephone'];
@@ -33,10 +33,11 @@ $nom_contact=$_POST['nom_contact'];
 $mail=$_POST['mail_contact'];
 $tel_contact=$_POST['telephone_contact'];
 $type_heberg=$_POST['type'];
+$service_heberg=$_POST['service']; 
 
+// Test champs formulaire
 if (empty($nom)) 
 {
-	//echo "Vous n'avez pas saisi le nom de l'hébergement !<br/>"; 
 	echo'<script>alert("Saisissez un hébergement !"); document.location.href="ajout_caracteristique.html";</script>';
 	exit;
 }
@@ -105,10 +106,18 @@ else if (empty($type_heberg))
 	echo'<script>alert("Saisissez un type hébergement !"); document.location.href="ajout_caracteristique.html";</script>';
 	exit;
 }
-// Creation et envoi de la requete
-$query = "INSERT INTO HEBERGEMENT (NOM_HEBERGEMENT, TEL_HEBERGEMENT, CAPACITE_HEBERGEMENT, NOMBRE_ETOILES, RIB, NUMERO_RUE_HEBERGEMENT, RUE_HEBERGEMENT, CODE_POSTAL_HEBERGEMENT, VILLE_HEBERGEMENT, NOM_CONTACT, PRENOM_CONTACT, MAIL_CONTACT, TEL_CONTACT, TYPE_HEBERGEMENT) VALUES('$nom', '$tel', '$capa', '$etoile', '$rib', '$num_rue', '$nom_rue', '$cp', '$ville', '$nom_contact','$prenom_contact', '$mail', '$tel_contact', '$type_heberg');";
-mysqli_query ($con, $query) or die ('Erreur SQL !'.$query.'<br />'.mysqli_error($query));
+/*else if(empty($service_heberg))
+{
+   echo "Aucune checkbox n'a été cochée";
+   exit;
+} */
 
+// Creation et envoi de la requete
+$query = "INSERT INTO HEBERGEMENT (NOM_HEBERGEMENT, TEL_HEBERGEMENT, CAPACITE_HEBERGEMENT, NOMBRE_ETOILES, RIB, NUMERO_RUE_HEBERGEMENT, RUE_HEBERGEMENT, CODE_POSTAL_HEBERGEMENT, VILLE_HEBERGEMENT, NOM_CONTACT, PRENOM_CONTACT, MAIL_CONTACT, TEL_CONTACT, TYPE_HEBERGEMENT)
+VALUES('$nom', '$tel', '$capa', '$etoile', '$rib', '$num_rue', '$nom_rue', '$cp', '$ville', '$nom_contact','$prenom_contact', '$mail', '$tel_contact', '$type_heberg');";
+$query2 = "INSERT INTO SERVICE VALUES ('$service_heberg');"; //pas mieux de mettre une clé étrangère dans la table service ? 
+mysqli_query ($con, $query) or die ('Erreur SQL !'.$query.'<br />'.mysqli_error($query));
+mysqli_query ($con, $query2) or die ('Erreur SQL !'.$query2.'<br />'.mysqli_error($query2));
 
 
 //On ferme la connexion à la base de donnée
