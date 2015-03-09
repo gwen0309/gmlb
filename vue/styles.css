@@ -23,6 +23,7 @@ a{
 #connexion{
     margin: 1% 5% 0 0;
     text-align: right;
+    
 }
 
 .btnConnexion{
@@ -334,7 +335,7 @@ td, th, tr
 #galerie{
     background-color: black;
     height: auto;
-    margin: 5% 15%;
+    margin: 0% 15%;
     width: 70%;
 }
 
@@ -342,10 +343,8 @@ td, th, tr
 footer{
     background-color: black;
     height: auto;
-    margin: 2% 15%;
-    background-color: grey;
-    height: 100px;
-    margin: 5% 15%;
+    margin: 3% 15%;
+    height: auto;
     width: 70%;
 }
 
@@ -353,7 +352,7 @@ footer h2{
     width: 16%;
     margin: 1% 2%;
     display: inline-block;
-    font-size: 20px;
+    font-size: 16px;
     vertical-align: top;
 }
 
@@ -388,33 +387,51 @@ footer img{
     background-color: white;
     color:black;
     display: inline-block;
-    margin: 0 5% 0 20%;
+    margin: 0 5% 0 15%;
     text-align: center;
-    width: 25%;
+    width: 30%;
     border-radius: 15px;
-    height: 150px;
+    height: auto;
+    padding-bottom: 1%;
 }
 #EspaceConnexion input{
     margin : 5px 0px;
 }
 
 #EspaceInscription{
+    font-family:  'Century Gothic';    
     background-color: white;
     color:black;
     border-radius: 15px;
     display: inline-block;
-    margin: 0 19% 0 5%;
+    margin: 0 12% 0 5%;
     text-align: center;
-    width: 25%;
-    height: 150px;
+    width: 30%;
+    height: auto;
     vertical-align: top;
+    padding: 0% 1% 2% 1%;
 
 }
 
-#EspaceConnexion h1, #EspaceInscription h1{
+#EspaceConnexion h1,  #EspaceInscription h1{
     color:#D0A42E;
 }
 
+#EspaceInscription h2 {
+    font-size: 15px;
+    color:#999999;
+}
+
+#EspaceInscription p, label{
+    font-size: 14px;
+    font-family:  'Century Gothic';    
+
+}
+
+#login input[type=submit]{
+    font-size: 18px;
+    margin-top: 5%;
+}
 
 /*Chargement des images pour carousel*/
 #owl-demo {
