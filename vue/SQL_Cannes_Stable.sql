@@ -41,8 +41,12 @@ drop table if exists UTILISATEUR
 /*==============================================================*/
 create table ACTEUR
 (
+<<<<<<< HEAD
    ID_INDIVIDU             smallint       not null,
   /* ID_ACTEUR		   smallint       not null,*/
+=======
+   ID_INDIVIDU          smallint not null,        
+>>>>>>> origin/master
    PERSONNAGE_INTERPRETE char(50),
    primary key (ID_INDIVIDU)
 );
@@ -116,7 +120,11 @@ create table INDIVIDU
 /*==============================================================*/
 create table JOUER
 (
+<<<<<<< HEAD
    ID_INDIVIDU          smallint not null,               
+=======
+   ID_INDIVIDU          smallint not null,
+>>>>>>> origin/master
    ID_FILM              smallint not null,
    primary key (ID_INDIVIDU, ID_FILM)
 );
@@ -149,9 +157,15 @@ create table PROJETER
    ID_FILM              smallint not null,
    ID_SALLE             smallint not null,
    ID_PROJECTION        smallint auto_increment,
+<<<<<<< HEAD
    DATE_DEBUT_PROJECTION timestamp null,
    DATE_FIN_PROJECTION  timestamp null,
    primary key (ID_FILM, ID_SALLE, ID_PROJECTION)
+=======
+   DATE_DEBUT_PROJECTION timestamp,
+   DATE_FIN_PROJECTION  timestamp,
+   primary key (ID_FILM, ID_SALLE)
+>>>>>>> origin/master
 );
 
 /*==============================================================*/
@@ -191,11 +205,17 @@ create table RESERVER
 (
    ID_CHAMBRE           smallint not null,
    ID_INDIVIDU          smallint not null,
+<<<<<<< HEAD
    ID_RESERVATION       smallint not null auto_increment,                                                   
    DATE_DEBUT_SEJOUR    timestamp null,
    DATE_FIN_SEJOUR      timestamp null,
+=======
+   ID_RESERVATION       int auto_increment,                                                   
+   DATE_DEBUT_SEJOUR    timestamp,
+   DATE_FIN_SEJOUR      timestamp,
+>>>>>>> origin/master
    NOMBRE_DE__PERSONNES int,
-   primary key (ID_TYPE_DE_CHAMBRE_MH, ID_INDIVIDU) /*primary key voir pour id resa**/
+   primary key (ID_TYPE_DE_CHAMBRE_MH, ID_INDIVIDU, ID_RESERVATION) /*primary key voir pour id resa*/
 );
 
 /*==============================================================*/
