@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">	       
 <link rel="stylesheet" href="styles.css" type="text/css" />	
-<title> Saisi Caractéristiques Hébergement</title>	
+<title> Saisie Caractéristiques Hébergement</title>	
 </head>  
 
 <body>
@@ -14,14 +14,14 @@
             </div>
             
             <div id="banniere">
-                <img src="images/banner.png" alt="Banner" />
+                <img src="images/bannerblanc.png" alt="Banner" />
             </div>
 </header>
 
 <nav> 
 	<ul id="menu">
     	<li> <a href="#">Gestion des hébergements</a></li>
-        <li> <a href="#">Gestion des projections</a></li>
+        <li> <a href="#"></a></li>
         <li> <a href="#"></a></li>
         <li> <a href="#"></a></li>
     </ul>
@@ -38,24 +38,24 @@
 
 <div id="caracteristics">
 	<div id="general">
-	<h3> Veuillez saisir les caractéistiques du nouvel hébergement </h3>
+	<h3> Veuillez saisir les caractéristiques du nouvel hébergement </h3>
     <br>
 	<form action="ajout_caracteristique.php" method="POST"> 
     <!--Méthode GET pour tester les valeurs entrées--> 
     	
         <h3>Caractéristiques générales</h3>
-		<p>Nom de l'hébergement :  <input type="text" name="nom_hebergement" required/></p>
-        <p>Numéros de téléphone :  <input type="tel" name="telephone" required/></p>
-        <p>Capacité (nombre de personne) : <input type="number" name="capacite" required/></p>
-        <p>Nombre d'étoile : <input type="number" name="etoile" required/></p>
-        <select name="type" required >
+		<p>Nom de l'hébergement :  <input type="text" name="nom_hebergement" /></p>
+        <p>Numéros de téléphone :  <input type="tel" name="telephone" /></p>
+        <p>Capacité (nombre de personne) : <input type="number" name="capacite" /></p>
+        <p>Nombre d'étoile : <input type="number" name="etoile" /></p>
+        <select name="type">
           <option value="">-Choisir un type d'hébergement-</option>
           <option value="hotel">Hôtel</option>
           <option value="chambre">Chambre d'hôte</option>
           <option value="appartement">Appartement</option>
           <option value="villa">Villa</option>
      	</select>
-        <p>RIB : <input type="text" name="RIB" required/></p>
+        <p>RIB : <input type="text" name="RIB" /></p>
         </div>
         <br>
         <div id="service">
@@ -65,18 +65,18 @@
         <br>
         <div id="adresse">
         <h3> Adresse de l'hébergement </h3>
-        <p>Numéro de rue : <input type="number" name="numero_rue" required/></p>
-        <p>Nom de la rue : <input type="text" name="nom_rue" required/></p>
-        <p>Code postal : <input type="number" name="CP" required/></p>
-        <p>Ville : <input type="text" name="ville" required/></p>
+        <p>Numéro de rue : <input type="number" name="numero_rue" /></p>
+        <p>Nom de la rue : <input type="text" name="nom_rue" /></p>
+        <p>Code postal : <input type="number" name="CP" /></p>
+        <p>Ville : <input type="text" name="ville" /></p>
         </div>
         <br>
         <div id="contact">
         <h3> Contact de l'hébergement </h3>
-        <p>Nom du contact : <input type="text" name="nom_contact" required/></p>
-        <p>Prénom du contact : <input type="text" name="prenom_contact" required/></p>
-        <p>Adresse mail du contact : <input type="email" name="mail_contact" required/></p>
-        <p>Téléphone du contact : <input type="tel" name="telephone_contact" required/></p>
+        <p>Nom du contact : <input type="text" name="nom_contact" /></p>
+        <p>Prénom du contact : <input type="text" name="prenom_contact" /></p>
+        <p>Adresse mail du contact : <input type="email" name="mail_contact" /></p>
+        <p>Téléphone du contact : <input type="tel" name="telephone_contact" /></p>
         <p><input type="submit" value="Envoyer"></p>
         <div>
      </form>

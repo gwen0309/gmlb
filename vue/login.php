@@ -16,7 +16,7 @@
             </div>
             
             <div id="banniere">
-                <img src="images/banner.png" alt="Banner" />
+                <img src="images/bannerblanc.png" alt="Banner" />
             </div>
         </header>
         
@@ -60,3 +60,7 @@
     </body>
     
 </html>
+
+<?php
+
+?>
