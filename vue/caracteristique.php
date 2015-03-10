@@ -29,12 +29,27 @@
 
 <div>
 <ul class="menu-vertical">
-    <li class="mv-item"><a href="ajout_caracteristique.html">Ajouter</a></li>
+    <li class="mv-item"><a href="caracteristique.php">Ajouter</a></li>
     <li class="mv-item"><a href="#">Modifier</a></li>
     <li class="mv-item"><a href="lister_hebergement.php">Lister</a></li>
     <li class="mv-item"><a href="#">test4</a></li>
 </ul>
 </div>
+
+<?php 
+
+// Déclaration des paramètres de connexion
+$host = "localhost";  
+$user = "root";
+$bdd = "filrouge";
+$password  = "";
+
+// Connexion au serveur
+$con = mysqli_connect($host, $user, $password);
+mysqli_select_db($con, $bdd) or die("erreur lors de la selection de la bd");
+$query = "SELECT NOM_SERVICE FROM SERVICE;"; 
+
+?>
 
 <div id="caracteristics">
 	<div id="general">
@@ -55,69 +70,41 @@
           	<option value="villa">Villa</option>
      		</select>
         	<p>RIB : <input type="text" name="RIB" required/></p>
-    </div>
-    <br>
-	<div id="service">
-	<h3> Veuillez saisir les caractéristiques du nouvel hébergement </h3>
-    <br>
-	<form action="ajout_caracteristique.php" method="POST"> 
-    <!--Méthode GET pour tester les valeurs entrées--> 
-    	
-        <h3>Caractéristiques générales</h3>
-		<p>Nom de l'hébergement :  <input type="text" name="nom_hebergement" /></p>
-        <p>Numéros de téléphone :  <input type="tel" name="telephone" /></p>
-        <p>Capacité (nombre de personne) : <input type="number" name="capacite" /></p>
-        <p>Nombre d'étoile : <input type="number" name="etoile" /></p>
-        <select name="type">
-          <option value="">-Choisir un type d'hébergement-</option>
-          <option value="hotel">Hôtel</option>
-          <option value="chambre">Chambre d'hôte</option>
-          <option value="appartement">Appartement</option>
-          <option value="villa">Villa</option>
-     	</select>
-        <p>RIB : <input type="text" name="RIB" /></p>
-        </div>
+</div>
         <br>
-        <div id="service">
-        <h3>Ajout service</h3>
-        <input type="checkbox" name="service" value="sauna"/>Sauna<br>
-        <input type="checkbox" name="service" value="hammam"/>Hammam<br>
-        <input type="checkbox" name="service" value="piscine"/>Piscine<br>
-        <input type="checkbox" name="service" value="spa"/>Spa<br>
-        <input type="checkbox" name="service" value="bar"/>Bar<br>
-        <input type="checkbox" name="service" value="club"/>Discotrèque<br>
-        <input type="checkbox" name="service" value="casino"/>Casino<br>
-        <input type="checkbox" name="service" value="Restaurant"/>Restaurant<br>
-        <input type="checkbox" name="service" value="sport"/>Salle de sport<br>
-        <input type="checkbox" name="service" value="golf"/>Golf<br>
-        <input type="checkbox" name="service" value="wifi"/>Wifi<br> 
-        <input type="checkbox" name="service" value="room"/>Room Service Privatisé<br> 
-        <input type="checkbox" name="service" value="animaux"/>Toileteur pour animaux domestiques<br>    
- 	</div>
+<div id="service">
+<h3>Ajout service</h3>        
+<?php
+$result=mysqli_query($con,$query);
+    while ($row = mysqli_fetch_array($result))
+	{
+		echo"<input type='checkbox' value='{$row['NOM_SERVICE']}'>"  . $row['NOM_SERVICE'];
+		echo"<br/>";
+		//echo"<label for='{$row['NOM_SERVICE']}'</label>";
+		//changer nom service dans value par id service
+    }
+	
+	mysqli_free_result($result);
+	mysqli_close($con);
+?>
+</div>
     <br>
-	<div id="adresse">
+<div id="adresse">
         <h3> Adresse de l'hébergement </h3>
         <p>Numéro de rue : <input type="number" name="numero_rue" required/></p>
         <p>Nom de la rue : <input type="text" name="nom_rue" required/></p>
         <p>Code postal : <input type="number" name="CP" required/></p>
         <p>Ville : <input type="text" name="ville" required/></p>
-	</div>
-    <br>
-	<div id="contact">
-        <p>Numéro de rue : <input type="number" name="numero_rue" required/></p>
-        <p>Nom de la rue : <input type="text" name="nom_rue" required/></p>
-        <p>Code postal : <input type="number" name="CP" required/></p>
-        <p>Ville : <input type="text" name="ville" required/></p>
-        </div>
+</div>
         <br>
-        <div id="contact">
+<div id="contact">
         <h3> Contact de l'hébergement </h3>
         <p>Nom du contact : <input type="text" name="nom_contact" required/></p>
         <p>Prénom du contact : <input type="text" name="prenom_contact" required/></p>
         <p>Adresse mail du contact : <input type="email" name="mail_contact" required/></p>
         <p>Téléphone du contact : <input type="tel" name="telephone_contact" required/></p>
         <p><input type="submit" value="Envoyer"></p>
-     <div>
+<div>
      	</form>
 
 
