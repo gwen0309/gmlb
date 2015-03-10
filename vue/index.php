@@ -12,17 +12,10 @@
         
         <?php include("entete.php");?>
             
-<<<<<<< HEAD
         <?php include("galerie.php");?>
         
         <?php include("footer.php");?>
   
-=======
-            <div id="banniere">
-                <img src="images/bannerblanc.png" alt="Banner" />
-            </div>
-        </header>
->>>>>>> origin/master
         
     </body>
     
