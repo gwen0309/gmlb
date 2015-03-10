@@ -47,7 +47,7 @@ $password  = "";
 // Connexion au serveur
 $con = mysqli_connect($host, $user, $password);
 mysqli_select_db($con, $bdd) or die("erreur lors de la selection de la bd");
-$query = "SELECT NOM_SERVICE FROM SERVICE;"; 
+$query = "SELECT ID_SERVICE, NOM_SERVICE FROM SERVICE;"; 
 
 ?>
 
@@ -55,7 +55,7 @@ $query = "SELECT NOM_SERVICE FROM SERVICE;";
 	<div id="general">
 		<h3> Veuillez saisir les caractéistiques du nouvel hébergement </h3>
     	<br>
-		<form action="ajout_caracteristique.php" method="POST">     	
+		<form action="ajout_caracteristique.php" method="GET">     	
         	<h3>Caractéristiques générales</h3>
 			<p>Nom de l'hébergement :  <input type="text" name="nom_hebergement" required/></p>
         	<p>Numéros de téléphone :  <input type="tel" name="telephone" required/></p>
@@ -78,7 +78,7 @@ $query = "SELECT NOM_SERVICE FROM SERVICE;";
 $result=mysqli_query($con,$query);
     while ($row = mysqli_fetch_array($result))
 	{
-		echo"<input type='checkbox' value='{$row['NOM_SERVICE']}'>"  . $row['NOM_SERVICE'];
+		echo"<input type='checkbox' name='service[]' value='{$row['ID_SERVICE']}'>"  .$row['NOM_SERVICE'];
 		echo"<br/>";
 		//echo"<label for='{$row['NOM_SERVICE']}'</label>";
 		//changer nom service dans value par id service

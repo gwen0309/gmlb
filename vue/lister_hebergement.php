@@ -75,7 +75,7 @@ if ($result=mysqli_query($con,$query))
 		<td><a> $Tel_heberg</a></td>
 		<td><a> $Capa_heberg</a></td>
 		<td><a> $etoile_heberg</a></td>
-		<form action="."services.php"." method="."POST"."> 
+		<form action="."afficher_services.php"." method="."POST"."> 
 		<td><a href="."#"." value="."$query".">Voir</td>
 		</form>	
 		<td><a href="."afficher_contact.php?ID_H=".$ID_H.">Voir</a></td>	

@@ -19,21 +19,21 @@ $password  = "";
 $con = mysqli_connect($host, $user, $password);
 mysqli_select_db($con, $bdd) or die("erreur lors de la selection de la bd");
 
-$nom=$_POST['nom_hebergement'];
-$tel=$_POST['telephone'];
-$capa=$_POST['capacite'];
-$etoile=$_POST['etoile'];
-$rib=$_POST['RIB'];
-$num_rue=$_POST['numero_rue'];
-$nom_rue=$_POST['nom_rue']; 
-$cp=$_POST['CP'];
-$ville=$_POST['ville'];
-$prenom_contact=$_POST['prenom_contact']; 
-$nom_contact=$_POST['nom_contact'];
-$mail=$_POST['mail_contact'];
-$tel_contact=$_POST['telephone_contact'];
-$type_heberg=$_POST['type'];
-//$service_heberg=$_POST['service']; 
+$nom=$_GET['nom_hebergement'];
+$tel=$_GET['telephone'];
+$capa=$_GET['capacite'];
+$etoile=$_GET['etoile'];
+$rib=$_GET['RIB'];
+$num_rue=$_GET['numero_rue'];
+$nom_rue=$_GET['nom_rue']; 
+$cp=$_GET['CP'];
+$ville=$_GET['ville'];
+$prenom_contact=$_GET['prenom_contact']; 
+$nom_contact=$_GET['nom_contact'];
+$mail=$_GET['mail_contact'];
+$tel_contact=$_GET['telephone_contact'];
+$type_heberg=$_GET['type'];
+$service_heberg=$_GET['service']; 
 
 // Test champs formulaire
 if (empty($nom)) 
@@ -117,6 +117,24 @@ $query = "INSERT INTO HEBERGEMENT (NOM_HEBERGEMENT, TEL_HEBERGEMENT, CAPACITE_HE
 VALUES('$nom', '$tel', '$capa', '$etoile', '$rib', '$num_rue', '$nom_rue', '$cp', '$ville', '$nom_contact','$prenom_contact', '$mail', '$tel_contact', '$type_heberg');"; 
 mysqli_query ($con, $query) or die ('Erreur SQL !'.$query.'<br />'.mysqli_error($query));
 
+$query2= "SELECT MAX(ID_HEBERGEMENT) FROM HEBERGEMENT;";
+mysqli_query ($con, $query2)or die ('Erreur SQL !'.$query2.'<br />'.mysqli_error($query2));
+if ($result=mysqli_query($con,$query2))
+  {
+  while ($row=mysqli_fetch_row($result))
+    {
+		$ID_H = $row[0];
+	}
+  }
+if (isset($service_heberg))
+{
+foreach ($service_heberg as $key => $value)
+{
+	$query3="INSERT INTO PROPOSER (ID_HEBERGEMENT, ID_SERVICE) VALUES ('$ID_H', '$value');";
+	mysqli_query ($con, $query3)or die ('Erreur SQL !'.$query3.'<br />'.mysqli_error($query3));
+	echo $value;
+}
+}
 //select pour recup id hebergement 
 // recupérer id service et insérer dans proposer 
 //insérer id hébergement dans proposer 
