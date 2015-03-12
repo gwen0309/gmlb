@@ -132,7 +132,6 @@ foreach ($service_heberg as $key => $value)
 {
 	$query3="INSERT INTO PROPOSER (ID_HEBERGEMENT, ID_SERVICE) VALUES ('$ID_H', '$value');";
 	mysqli_query ($con, $query3)or die ('Erreur SQL !'.$query3.'<br />'.mysqli_error($query3));
-	echo $value;
 }
 }
 //select pour recup id hebergement 

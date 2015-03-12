@@ -1,12 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Document sans titre</title>
-</head>
-
-<body>
-</body>
 </html><!DOCTYPE html>
 <html lang="fr"> 
 <head>
@@ -57,31 +48,25 @@ $ID=$_GET['ID_H'];
 $con = mysqli_connect($host, $user, $password);
 mysqli_select_db($con, $bdd) or die("erreur lors de la selection de la bd");
 // Creation et envoi de la requete
-$query = "SELECT NOM_CONTACT, PRENOM_CONTACT, MAIL_CONTACT, TEL_CONTACT FROM HEBERGEMENT WHERE ID_HEBERGEMENT LIKE '".$ID."'";
+$query = "SELECT NOM_SERVICE FROM PROPOSER P
+INNER JOIN HEBERGEMENT H ON H.ID_HEBERGEMENT = P.ID_HEBERGEMENT
+INNER JOIN SERVICE S ON S.ID_SERVICE = P.ID_SERVICE 
+WHERE P.ID_HEBERGEMENT LIKE '".$ID."'";
 //Test de la requète
 ?>
-<table id="liste_contact">
+<table id="liste_service">
 		<tr>
-        <th>Nom du contact</th>
-        <th>Prénom du contact </th>
-        <th>Mail du contact</th>
-        <th>Téléphone du contact</th>
+        <th>Services proposés</th>
         </tr>
 <?php
 if ($result=mysqli_query($con,$query))
   {
   while ($row=mysqli_fetch_row($result))
     {
-		$Nom_contact = $row[0]; 
-		$Prenom_contact = $row[1];
-		$Tel_contact = $row[2];
-		$Mail_contact = $row[3];
+		$Nom_service = $row[0]; 
 		echo "
 		<tr>
-		<td>$Nom_contact</td>
-		<td><a>$Prenom_contact</a></td>
-		<td><a>$Tel_contact</a></td>
-		<td><a>$Mail_contact</a></td>
+		<td>$Nom_service</td>
 		</tr>
 		";
     }
@@ -91,7 +76,6 @@ else
 	{
 		printf("Erreur lors de l'execution de la requète");
 	}
-// Free result set
 mysqli_close($con);
 ?> 
 </table>

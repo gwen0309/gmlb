@@ -54,7 +54,6 @@ $query = "SELECT ID_SERVICE, NOM_SERVICE FROM SERVICE;";
 <div id="caracteristics">
 	<div id="general">
 		<h3> Veuillez saisir les caractéistiques du nouvel hébergement </h3>
-    	<br>
 		<form action="ajout_caracteristique.php" method="GET">     	
         	<h3>Caractéristiques générales</h3>
 			<p>Nom de l'hébergement :  <input type="text" name="nom_hebergement" required/></p>

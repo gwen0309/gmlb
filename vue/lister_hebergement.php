@@ -72,12 +72,10 @@ if ($result=mysqli_query($con,$query))
 		echo "
 		<tr>
 		<td> $Nom_heberg</td>
-		<td><a> $Tel_heberg</a></td>
-		<td><a> $Capa_heberg</a></td>
-		<td><a> $etoile_heberg</a></td>
-		<form action="."afficher_services.php"." method="."POST"."> 
-		<td><a href="."#"." value="."$query".">Voir</td>
-		</form>	
+		<td>$Tel_heberg</td>
+		<td>$Capa_heberg</td>
+		<td>$etoile_heberg</td> 
+		<td><a href="."afficher_service.php?ID_H=".$ID_H.">Voir</td>	
 		<td><a href="."afficher_contact.php?ID_H=".$ID_H.">Voir</a></td>	
 		</tr>
 		";
